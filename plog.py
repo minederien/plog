@@ -13,7 +13,8 @@ from RawData import *
 from CSV import *
 #import time
 #ticks1 = time.time()
-f = LogFile("..\logs\CaseMI_modbus_issue_10lines_quotes.csv","CSV")
+#f = LogFile("..\logs\CaseMI_modbus_issue_10lines_quotes.csv","CSV")
+f = LogFile("~/Documents/citectlogs/kdump1.dat","CSV")
 #f.__dict__
 # now with file object, pass in Regex or let object do that?
 if f.fh != None :
