@@ -28,8 +28,8 @@ if f.fh != None :
     iT = oResCSV.lCnt[0]
     iM = oResCSV.lCnt[1]
     print('matched {} lines out of {} ' .format(iM,iT))
+    f.showprops() 
           
 else:
     print("Raté")          
-ticks2 = time.time()
-print('this run took {} ms' .format((ticks2-time.time())*1000))
+print('this run took {} ms' .format((time.time()-ticks1)*1000))

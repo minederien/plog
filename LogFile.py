@@ -7,24 +7,16 @@ class LogFile:
         self.fh = None
         import platform
         import os
-#        import time
-        import re
+        import time
+#        import re
         from stat import ST_SIZE,ST_MTIME
         self.plat = platform.system()
         print('OS = {}' .format(self.plat))
         if str.lower(self.plat) == 'windows' :
             sLogFolder = "logs\\"
-            mo = re.search(r".*\\\b(.*)\b",self.ffname)
         elif str.lower(self.plat) == 'linux' :
             sLogFolder = "logs\/"
-            mo = re.search(r"^.*\/(\w*\.\w*)",self.ffname)
             
-        if mo is not None:  
-            if mo.group(1) :
-                self.fname = mo.group(1)
-            else :
-                self.fname = 'noname'
-        
         try:
             self.fh=open(ffname,  'r', errors='ignore')
             #print('self.fh = ', str(self.fh))
@@ -38,9 +30,9 @@ class LogFile:
     
        
     def showprops(self):
-        if self.name:
-            print("Hola, soy " + self.name)
-            print("file modified:", time.asctime(time.localtime(st[ST_MTIME])))
+        if self.ffname is not None :
+            print("Hola, soy " + self.ffname)
+            print("file modified:", self.fmodt)
         else:
             print("Hi, Ich bin einen Robot ohne Namen")
             
