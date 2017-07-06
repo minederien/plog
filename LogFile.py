@@ -7,7 +7,7 @@ class LogFile:
         self.fh = None
         import platform
         import os
-        import time
+#        import time
         import re
         from stat import ST_SIZE,ST_MTIME
         self.plat = platform.system()
@@ -19,10 +19,11 @@ class LogFile:
             sLogFolder = "logs\/"
             mo = re.search(r"^.*\/(\w*\.\w*)",self.ffname)
             
-        if mo.group(1) :
-            self.fname = mo.group(1)
-        else :
-            self.fname = 'noname'
+        if mo is not None:  
+            if mo.group(1) :
+                self.fname = mo.group(1)
+            else :
+                self.fname = 'noname'
         
         try:
             self.fh=open(ffname,  'r', errors='ignore')
